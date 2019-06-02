@@ -1,0 +1,23 @@
+.line {
+  border-left: 1px solid#202B30;
+  min-height: 100vh;
+  position: absolute;
+  opacity: 0.06;
+  left: 10%;
+}
+
+.line:nth-child(2) {
+  left: 30%;
+}
+
+.line:nth-child(3) {
+  left: 50%;
+}
+
+.line:nth-child(4) {
+  left: 70%;
+}
+
+.line:nth-child(5) {
+  left: 90%;
+}
