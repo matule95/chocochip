@@ -1,9 +1,24 @@
 <template>
-  <div>
-    <nuxt />
-  </div>
+  <b-container fluid>
+    <b-row>
+      <b-col md="1">Logo</b-col>
+      <b-col md="10">
+        <nuxt />
+      </b-col>
+      <b-col md="1">
+        <Menu></Menu>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
-
+<script>
+import Menu from '~/components/menu.vue'
+export default {
+  components: {
+    Menu
+  }
+}
+</script>
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
