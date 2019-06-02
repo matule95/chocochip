@@ -1,0 +1,17 @@
+.menu {
+  &.menu-wrapper {
+    min-height: 100vh;
+    width: 70px;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    .menu-button {
+        width: 24px;
+        height: auto;
+        cursor: pointer;
+    }
+    .icon {
+        width: 18px;
+    }
+  }
+}
