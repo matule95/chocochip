@@ -50,7 +50,8 @@ module.exports = {
     {
       src: '~plugins/ks-vue-scrollmagic.js',
       ssr: false
-    }
+    },
+    { src: '~/plugins/vue-masonry', ssr: false }
   ],
 
   /*
