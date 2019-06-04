@@ -28,7 +28,11 @@
                 lg="4"
                 xl="3"
               >
-                <info-card :src="image" :index="index"></info-card>
+                <info-card
+                  :src="image"
+                  :index="index"
+                  @click.native="gotoPage(index)"
+                ></info-card>
               </b-col>
             </b-row>
           </b-col>
@@ -78,6 +82,14 @@ export default {
       },
       0.2
     )
+  },
+  methods: {
+    gotoPage(index) {
+      this.$router.push({
+        path: `/portfolio/photography/${index}`,
+        params: { id: index }
+      })
+    }
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <span>Cinematography</span>
+  <span>Hi there</span>
 </template>
 
 <script>

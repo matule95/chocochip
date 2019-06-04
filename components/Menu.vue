@@ -41,12 +41,12 @@
         >
         <b-col lg="12"
           ><n-link to="/portfolio/photography" @click.native="closeMenu"
-            ><h1>PORTFOLIO</h1></n-link
+            ><h1>PHOTOGRAPHY</h1></n-link
           ></b-col
         >
         <b-col lg="12"
-          ><n-link to="/gallery" @click.native="closeMenu"
-            ><h1>GALLERY</h1></n-link
+          ><n-link to="/portfolio/cinematography" @click.native="closeMenu"
+            ><h1>CINEMATOGRAPHY</h1></n-link
           ></b-col
         >
         <b-col lg="12"
