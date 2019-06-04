@@ -21,7 +21,7 @@
             </p>
           </b-col>
           <b-col id="content" md="10">
-            <b-row class="mt-3">
+            <b-row class="mt-3 cards">
               <b-col
                 v-for="(image, index) of images"
                 :key="index"
@@ -65,7 +65,20 @@ export default {
       '/assets/images/img-07.jpg',
       '/assets/images/img-08.jpg'
     ]
-  })
+  }),
+  mounted() {
+    this.$gsap.TweenMax.staggerFrom(
+      '.cards .col-lg-4',
+      2,
+      {
+        delay: 0.5,
+        opacity: 0,
+        y: 20,
+        ease: this.$gsap.Expo.easeInOut
+      },
+      0.2
+    )
+  }
 }
 </script>
 
