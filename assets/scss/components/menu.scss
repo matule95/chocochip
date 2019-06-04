@@ -25,10 +25,22 @@
     font-family: 'Proxima Nova',serif;
     align-items: center;
     justify-content: center;
-    display: flex;
     z-index: 2;
+    display: none;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1);
     & > .row > div {
-      opacity: 0;
+      margin-bottom: 30px;
+      h1 {
+        font-size: 56px;
+      }
     }
+  }
+  a {
+    color: $athengray;
+    text-decoration: none;
+  }
+  a.nuxt-link-active {
+    text-decoration: none;
+    color: $outerspace;
   }
 }
