@@ -6,12 +6,12 @@
       </b-col>
       <b-col md="10" offset="1">
         <b-row>
-          <b-col md="12">
+          <b-col id="title" md="12">
             <h1>
               PHOTOGRAPHY
             </h1>
           </b-col>
-          <b-col md="10" class="my-3">
+          <b-col id="description" md="10" class="my-3">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
               dignissim vehicula feugiat. Proin ac lacinia tellus. Etiam lorem
@@ -28,7 +28,11 @@
                 lg="4"
                 xl="3"
               >
-                <info-card :src="image" :index="index"></info-card>
+                <info-card
+                  :src="image"
+                  :index="index"
+                  @click.native="gotoPage(index)"
+                ></info-card>
               </b-col>
             </b-row>
           </b-col>
@@ -67,6 +71,16 @@ export default {
     ]
   }),
   mounted() {
+    this.$gsap.TweenMax.from('#title', 1, {
+      opacity: 0,
+      y: 20,
+      ease: this.$gsap.Expo.easeInOut
+    })
+    this.$gsap.TweenMax.from('#description', 2, {
+      opacity: 0,
+      y: 20,
+      ease: this.$gsap.Expo.easeInOut
+    })
     this.$gsap.TweenMax.staggerFrom(
       '.cards .col-lg-4',
       2,
@@ -78,6 +92,25 @@ export default {
       },
       0.2
     )
+  },
+  methods: {
+    gotoPage(index) {
+      this.$gsap.TweenMax.staggerTo(
+        '.cards .col-lg-4',
+        1,
+        {
+          opacity: 0,
+          ease: this.$gsap.Expo.easeInOut,
+          onComplete: () => {
+            this.$router.push({
+              path: `/portfolio/photography/${index}`,
+              params: { id: index }
+            })
+          }
+        },
+        0.2
+      )
+    }
   }
 }
 </script>

@@ -29,13 +29,36 @@
         <img class="icon" src="/assets/icons/search.svg" />
       </b-col>
     </b-row>
-    <div class="menu-options">
+    <div
+      class="menu-options"
+      :class="{ 'd-flex': toggled, 'd-none': !toggled }"
+    >
       <b-row>
-        <b-col lg="12"><h1>HOME</h1></b-col>
-        <b-col lg="12"><h1>PORTFOLIO</h1></b-col>
-        <b-col lg="12"><h1>GALLERY</h1></b-col>
-        <b-col lg="12"><h1>ABOUT US</h1></b-col>
-        <b-col lg="12"><h1>CONTACT US</h1></b-col>
+        <b-col lg="12"
+          ><n-link to="/home" @click.native="closeMenu"
+            ><h1>HOME</h1></n-link
+          ></b-col
+        >
+        <b-col lg="12"
+          ><n-link to="/portfolio/photography" @click.native="closeMenu"
+            ><h1>PHOTOGRAPHY</h1></n-link
+          ></b-col
+        >
+        <b-col lg="12"
+          ><n-link to="/portfolio/cinematography" @click.native="closeMenu"
+            ><h1>CINEMATOGRAPHY</h1></n-link
+          ></b-col
+        >
+        <b-col lg="12"
+          ><n-link to="/about" @click.native="closeMenu"
+            ><h1>ABOUT US</h1></n-link
+          ></b-col
+        >
+        <b-col lg="12"
+          ><n-link to="/contacts" @click.native="closeMenu"
+            ><h1>CONTACT US</h1></n-link
+          ></b-col
+        >
       </b-row>
     </div>
   </div>
@@ -72,53 +95,62 @@ export default {
   methods: {
     toggle() {
       if (!this.toggled) {
-        this.$gsap.TweenMax.fromTo(
-          '.menu-wrapper',
-          2,
-          { width: 0 },
-          {
-            width: '100vw',
-            ease: this.$gsap.Expo.easeInOut
-          }
-        )
-        this.$gsap.TweenMax.staggerFromTo(
-          '.menu-options .row .col-lg-12',
-          2,
-          {
-            opacity: 0,
-            y: 20,
-            ease: this.$gsap.Expo.easeInOut
-          },
-          {
-            opacity: 1,
-            y: 0,
-            ease: this.$gsap.Expo.easeInOut
-          },
-          0.2
-        )
+        this.openMenu()
       } else {
-        this.$gsap.TweenMax.staggerFromTo(
-          '.menu-options .row .col-lg-12',
-          2,
-          {
-            opacity: 1,
-            y: 0,
-            ease: this.$gsap.Expo.easeInOut
-          },
-          {
-            opacity: 0,
-            y: 20,
-            ease: this.$gsap.Expo.easeInOut
-          },
-          0.2
-        )
-        this.$gsap.TweenMax.to('.menu-wrapper', 2, {
-          width: 70,
-          delay: 1.3,
-          ease: this.$gsap.Expo.easeInOut
-        })
+        this.closeMenu()
       }
+    },
+    openMenu() {
+      this.$gsap.TweenMax.fromTo(
+        '.menu-wrapper',
+        2,
+        { width: 0 },
+        {
+          width: '100vw',
+          ease: this.$gsap.Expo.easeInOut
+        }
+      )
+      this.$gsap.TweenMax.staggerFromTo(
+        '.menu-options .row .col-lg-12',
+        2,
+        {
+          opacity: 0,
+          y: 20,
+          ease: this.$gsap.Expo.easeInOut
+        },
+        {
+          opacity: 1,
+          y: 0,
+          ease: this.$gsap.Expo.easeInOut
+        },
+        0.2
+      )
       this.toggled = !this.toggled
+    },
+    closeMenu() {
+      this.$gsap.TweenMax.staggerFromTo(
+        '.menu-options .row .col-lg-12',
+        1,
+        {
+          opacity: 1,
+          y: 0,
+          ease: this.$gsap.Expo.easeInOut
+        },
+        {
+          opacity: 0,
+          y: 20,
+          ease: this.$gsap.Expo.easeInOut
+        },
+        0.2
+      )
+      this.$gsap.TweenMax.to('.menu-wrapper', 2, {
+        width: 70,
+        delay: 0.5,
+        ease: this.$gsap.Expo.easeInOut,
+        onComplete: () => {
+          this.toggled = !this.toggled
+        }
+      })
     }
   }
 }
