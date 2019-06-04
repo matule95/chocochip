@@ -1,0 +1,64 @@
+.filters {
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: $athengray;
+  position: fixed;
+  top: 50%;
+
+  .active {
+    font-weight: 500;
+    color: $outerspace;
+
+    span:before {
+      background: $outerspace;
+      width: 100%;
+      transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    span:after {
+      background: transparent;
+      width: 100%;
+      transition: 0s;
+    }
+  }
+
+  span {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  span:before,
+  span:after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    top: 50%;
+    border-radius: 10px;
+    margin-top: -0.5px;
+    background: #fff;
+  }
+
+  span:before {
+    left: -2.5px;
+  }
+
+  span:after {
+    right: 2.5px;
+    background: $outerspace;
+    transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  span:hover:before {
+    background: $outerspace;
+    width: 100%;
+    transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  span:hover:after {
+    background: transparent;
+    width: 100%;
+    transition: 0s;
+  }
+}

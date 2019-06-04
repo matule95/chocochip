@@ -1,18 +1,25 @@
 <template>
   <b-container fluid>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
     <b-row>
-      <b-col md="1">Logo</b-col>
-      <b-col md="10">
-        <nuxt />
+      <b-col md="1" class="pt-5">
+        <img class="img-fluid" src="/assets/images/logo.png" />
       </b-col>
-      <b-col md="1">
-        <Menu></Menu>
+      <!-- <b-col offset-lg="10" md="1"> -->
+      <Menu></Menu>
+      <!-- </b-col> -->
+      <b-col md="12" class="ml-auto mr-auto">
+        <nuxt />
       </b-col>
     </b-row>
   </b-container>
 </template>
 <script>
-import Menu from '~/components/menu.vue'
+import Menu from '../components/Menu.vue'
 export default {
   components: {
     Menu

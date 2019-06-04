@@ -1,1 +1,11 @@
-@import './components/menu.scss'
+@import 'variables.scss';
+@import './components/menu.scss';
+@import './components/lines.scss';
+@import './components/fonts.scss';
+@import './components/filters.scss';
+@import './components/info-card.scss';
+
+body {
+    overflow: hidden;
+    cursor: url('/assets/icons/cursor.svg'), auto;
+}

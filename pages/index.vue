@@ -1,11 +1,13 @@
 <template>
-  <b-container>
-    <b-row>
-      <b-col>
-        Index.vue
-      </b-col>
-    </b-row>
-  </b-container>
+  <div>
+    <b-container fluid>
+      <b-row>
+        <b-col md="12" class="bg-success w-100">
+          Index.vue
+        </b-col>
+      </b-row>
+    </b-container>
+  </div>
 </template>
 
 <script>
