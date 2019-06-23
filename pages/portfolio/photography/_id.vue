@@ -1,7 +1,11 @@
 <template>
   <b-container fluid>
     <b-row>
-      <b-col md="1"> </b-col>
+      <b-col md="1">
+        <div id="side-label">
+          <span>PHOTOGRAPHY</span>
+        </div>
+      </b-col>
       <b-col md="10" offset="1">
         <b-row>
           <b-col id="title" md="6">
@@ -10,7 +14,7 @@
             </h1>
           </b-col>
           <b-col md="6"></b-col>
-          <b-col id="description" md="6" class="my-3">
+          <b-col id="description" md="6" class="my-3 text-justify">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
               dignissim vehicula feugiat. Proin ac lacinia tellus. Etiam lorem
@@ -173,5 +177,11 @@ export default {
   /* WebKit */
   width: 0;
   height: 0;
+}
+
+#side-label {
+  position: fixed;
+  top: 50%;
+  transform: rotate(-90deg);
 }
 </style>

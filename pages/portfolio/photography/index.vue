@@ -31,7 +31,7 @@
                 <info-card
                   :src="image"
                   :index="index"
-                  @click.native="gotoPage(index)"
+                  @clicked="gotoPage(index)"
                 ></info-card>
               </b-col>
             </b-row>
@@ -68,7 +68,8 @@ export default {
       '/assets/images/img-06.jpg',
       '/assets/images/img-07.jpg',
       '/assets/images/img-08.jpg'
-    ]
+    ],
+    selected: true
   }),
   mounted() {
     this.$gsap.TweenMax.from('#title', 1, {
@@ -95,10 +96,8 @@ export default {
   },
   methods: {
     gotoPage(index) {
-      this.$gsap.TweenMax.staggerTo(
-        '.cards .col-lg-4',
-        1,
-        {
+      this.$nextTick(function() {
+        this.$gsap.TweenMax.staggerTo('.not-selected', 1.5, {
           opacity: 0,
           ease: this.$gsap.Expo.easeInOut,
           onComplete: () => {
@@ -107,9 +106,8 @@ export default {
               params: { id: index }
             })
           }
-        },
-        0.2
-      )
+        })
+      })
     }
   }
 }
