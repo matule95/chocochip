@@ -1,8 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap');
-h1,h2,h3,h4,h5,h6 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
+@font-face {
+    font-family: 'Proxima Nova Regular';
+    src: local('Proxima Nova Regular'), local('ProximaNova-Regular'),
+        url('/assets/fonts/ProximaNova-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
+
 body {
-    font-family: 'Proxima Nova', serif;
+  font-family: 'Proxima Nova Regular';
 }
