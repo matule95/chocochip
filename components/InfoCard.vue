@@ -1,5 +1,10 @@
 <template>
-  <div :id="`info_card_${index}`" class="info-card">
+  <div
+    :id="`info_card_${index}`"
+    class="info-card"
+    :class="{ 'not-selected': !selected, selected: selected }"
+    @click="isSelected"
+  >
     <b-row class="mb-5">
       <b-col :id="`card_${index}`" md="12">
         <img :src="src" />
@@ -32,6 +37,9 @@ export default {
       type: Number
     }
   },
+  data: () => ({
+    selected: false
+  }),
   mounted() {
     VanillaTilt.init(document.querySelector(`#card_${this.index}`))
     // const tm = this.$gsap.TweenMax.fromTo(
@@ -47,6 +55,12 @@ export default {
     //   offset: 50 // move trigger to center of element
     // }).setTween(tm)
     // this.$ksvuescr.$emit('addScene', 'photographyScene', scene)
+  },
+  methods: {
+    isSelected() {
+      this.selected = true
+      this.$emit('clicked', this.index)
+    }
   }
 }
 </script>
